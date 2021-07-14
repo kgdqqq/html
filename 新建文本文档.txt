@@ -1,0 +1,16 @@
+https://www.baiduyun.wiki/mactype.user.js
+
+
+https://www.baiduyun.wiki/panai.user.js
+
+https://www.baiduyun.wiki/instantpage.user.js
+
+
+https://www.baiduyun.wiki/panlinker.user.js
+
+
+https://greasyfork.org/scripts/11915-anti-redirect/code/anti-redirect.user.js
+
+
+
+https://www.crxsoso.com/
