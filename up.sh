@@ -31,6 +31,30 @@ echo "生成缓存..."
 yum makecache
 echo "生成缓存成功, OK"
 
+echo "安装软件..."
+yum -y install sudo yum-utils   unzip ntpdate
+yum install -y wget lrzsz  epel-release  bash-completion
+yum install -y net-snmp-perl net-snmp-utils sysstat
+yum -y install OpenIPMI ipmitoolwqy-microhei-fonts
+yum install net-snmp net-snmp-utils  lm-sensors -y
+yum install langpacks-zh_CN.noarch -y net-tools.x86_64
+
+yum clean all  &&  sudo yum makecache
+systemctl stop firewalld.service && systemctl disable firewalld.service
+
+setenforce 0
+sed -i '/^#UseDNS/s/#UseDNS yes/UseDNS no/g' /etc/ssh/sshd_config
+ntpdate cn.pool.ntp.org
+localedef -c -f UTF-8 -i zh_CN zh_CN.UTF-8
+export LC_ALL=zh_CN.UTF-8
+echo 'LANG=zh_CN.UTF-8' > /etc/sysconfig/i18n
+
+
 echo "更新软件..."
-yum update -y
+yum update && upgrade -y
 echo "软件更新完毕, OK"
+
+
+
+
+
