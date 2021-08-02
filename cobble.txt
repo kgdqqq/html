@@ -1,0 +1,51 @@
+#!/bin/bash
+yum -y install xinetd syslinux dhcp tftp-server httpd rsync
+yum install -y python-pip
+pip install -U pip
+yum -y install cobbler cobbler-web pykickstart 
+
+
+yum -y install xinetd syslinux dhcp tftp-server httpd rsync
+yum install -y python-pip3 
+pip3 install -U pip 
+
+
+systemctl start httpd 
+systemctl start cobblerd
+systemctl enable httpd 
+systemctl enable cobblerd
+
+
+cp /etc/cobbler/settings{,.bak} # 备份
+#server，Cobbler服务器的IP 【提示1】
+sed -i 's/^server: 127.0.0.1/server: 10.172.16.10/' /etc/cobbler/settings
+
+# next_server，如果用Cobbler管理DHCP，修改本项，作用不解释，看kickstart【提示2】
+sed -i 's/^next_server: 127.0.0.1/next_server: 10.172.16.10/' /etc/cobbler/settings
+
+
+# 用Cobbler管理DHCP
+sed -i 's/^manage_dhcp: 0/manage_dhcp: 1/' /etc/cobbler/settings
+# 防止循环装系统，适用于服务器第一启动项是PXE启动。
+sed -i 's/^pxe_just_once: 0/pxe_just_once: 1/' /etc/cobbler/settings
+
+
+# 设置新装系统的默认root密码123456，下面的命令来源于【提示7】。
+# random-phrase-here为干扰码，可以自行设定。
+# openssl passwd -1 -salt 'root' '123456'
+$1$root$j0bp.KLPyr.u9kgQ428D10
+# vi /etc/cobbler/settings 
+default_password_crypted:
+default_password_crypted: "$1$root$j0bp.KLPyr.u9kgQ428D10"
+
+
+vi  /etc/xinetd.d/tftp
+disable                 = no
+
+
+
+
+
+
+
+
