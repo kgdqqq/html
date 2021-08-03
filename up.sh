@@ -51,8 +51,12 @@ echo 'LANG=zh_CN.UTF-8' > /etc/sysconfig/i18n
 
 
 echo "更新软件..."
-yum update && upgrade -y
+yum update && yum upgrade -y
 echo "软件更新完毕, OK"
+
+
+
+echo "安装Cobbler..."
 
 
 
