@@ -44,10 +44,7 @@ systemctl stop firewalld.service && systemctl disable firewalld.service
 
 setenforce 0
 sed -i '/^#UseDNS/s/#UseDNS yes/UseDNS no/g' /etc/ssh/sshd_config
-ntpdate cn.pool.ntp.org
-localedef -c -f UTF-8 -i zh_CN zh_CN.UTF-8
-export LC_ALL=zh_CN.UTF-8
-echo 'LANG=zh_CN.UTF-8' > /etc/sysconfig/i18n
+
 
 
 echo "更新软件..."

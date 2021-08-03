@@ -44,17 +44,6 @@ yum install net-snmp net-snmp-utils  lm-sensors -y
 yum install -y net-tools.x86_64 vconfig
 
 echo "生成缓存..."
-yum install langpacks-zh_CN.noarch -y 
-
-echo "设置Centos 显示中文"  
-localedef -c -f UTF-8 -i zh_CN zh_CN.UTF-8
-export LC_ALL=zh_CN.UTF-8
-echo 'LANG=zh_CN.UTF-8' > /etc/sysconfig/i18n
-
-
-
-yum upgrade   -y
-
 
 yum clean all  &&  sudo yum makecache
 systemctl stop firewalld.service && systemctl disable firewalld.service
