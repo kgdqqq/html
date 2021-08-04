@@ -41,7 +41,7 @@ yum install -y wget lrzsz  epel*  bash-completion
 yum install -y net-snmp-perl net-snmp-utils sysstat
 yum -y install OpenIPMI ipmitoolwqy-microhei-fonts
 yum install net-snmp net-snmp-utils  lm-sensors -y
-yum install -y net-tools.x86_64 vconfig
+yum install -y net-tools.x86_64 vconfig -y
 
 echo "生成缓存..."
 
