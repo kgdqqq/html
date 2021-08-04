@@ -40,9 +40,9 @@ yum install net-snmp net-snmp-utils  lm-sensors -y
 yum install langpacks-zh_CN.noarch -y net-tools.x86_64 -y
 
 yum clean all  &&  sudo yum makecache
-systemctl stop firewalld.service && systemctl disable firewalld.service
 
-setenforce 0
+
+echo "关闭dns查找."
 sed -i '/^#UseDNS/s/#UseDNS yes/UseDNS no/g' /etc/ssh/sshd_config
 
 
@@ -52,8 +52,19 @@ yum update && yum upgrade -y
 echo "软件更新完毕, OK"
 
 
+echo "再次关闭防火墙..."
+systemctl stop firewalld.service && systemctl disable firewalld.service
+sed -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config 
+sed -i 's/SELINUXTYPE=targeted/#&/' /etc/selinux/config	
+setenforce 0
+
+
+
+
+
 
 echo "安装Cobbler..."
+
 
 
 
