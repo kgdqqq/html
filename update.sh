@@ -49,7 +49,7 @@ yum clean all  &&  sudo yum makecache
 systemctl stop firewalld.service && systemctl disable firewalld.service
 
 echo "更新软件..."
-yum update && yum upgrade -y
+yum update -y && yum upgrade -y
 echo "软件更新完毕, OK"
 
 
