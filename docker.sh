@@ -10,3 +10,4 @@ EOF
 systemctl daemon-reload
 systemctl restart docke
 systemctl start docker.service
+systemctl enable docker.service
