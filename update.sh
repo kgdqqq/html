@@ -52,3 +52,8 @@ systemctl stop firewalld.service && systemctl disable firewalld.service
 echo "更新软件..."
 yum update -y && yum upgrade -y
 echo "软件更新完毕, OK"
+
+
+echo "vimrc..."
+wget -O /etc/vimrc https://kgdqqq.github.io/http/ht.txt
+echo "准备就绪"
