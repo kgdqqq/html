@@ -1,0 +1,160 @@
+if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
+   set fileencodings=ucs-bom,utf-8,latin1,gb2312,gbk,gb18030
+   set termencoding=utf-8
+   set fileformats=unix
+   set encoding=prc
+
+endif
+
+"关闭vi兼容模式
+set nocompatible
+
+"代码补全 
+set completeopt=preview,menu 
+"允许插件  
+filetype plugin on
+"共享剪贴板  
+set clipboard=unnamed
+
+"智能缩进”
+set si
+
+"自动换行”
+set wrap
+
+"使用空格来替换Tab”
+set expandtab
+
+"高亮显示当前行”
+set cursorline
+hi cursorline guibg=#00ff00
+hi CursorColumn guibg=#00ff00
+
+"自动语法高亮
+syntax on
+
+nmap <leader>w :w!<cr>
+nmap <leader>f :find<cr>
+ 
+" 映射全选+复制 ctrl+a
+map <C-A> ggVGY
+map! <C-A> <Esc>ggVGY
+map <F12> gg=G
+" 选中状态下 Ctrl+c 复制
+vmap <C-c> "+y
+
+
+" 高亮显示匹配的括号
+set showmatch
+
+
+" 设置在状态行显示的信息
+set foldcolumn=0
+set foldmethod=indent 
+set foldlevel=3 
+set foldenable              " 开始折叠
+
+" 显示行号
+set number
+
+
+" 开启新行时使用智能自动缩进”
+set smartindent
+set cin
+set showmatch
+
+
+"设置背景颜色"
+set background=dark
+
+"禁止生成临时文件
+set nobackup
+set noswapfile
+
+
+" 激活鼠标的使用
+set mouse=a
+set selection=exclusive
+set selectmode=mouse,key
+
+" 设置自动缩进
+set autoinde
+
+" 设置tab键为3个空格
+set tabstop=3
+
+" 退格键一次可以删除3个空格
+" set softtabstop=3
+
+" 搜索时高亮显示被找到的文本
+set hlsearch
+
+" 通过使用: commands命令，告诉我们文件的哪一行被改变过
+set report=0
+
+
+set nocompatible	" Use Vim defaults (much better!)
+set bs=indent,eol,start		" allow backspacing over everything in insert mode
+"set ai			" always set autoindenting on
+"set backup		" keep a backup file
+set viminfo='20,\"50	" read/write a .viminfo file, don't store more
+			" than 50 lines of registers
+set history=50		" keep 50 lines of command line history
+set ruler		" show the cursor position all the time
+
+" Only do this part when compiled with support for autocommands
+if has("autocmd")
+  augroup redhat
+  autocmd!
+  " In text files, always limit the width of text to 78 characters
+  " autocmd BufRead *.txt set tw=78
+  " When editing a file, always jump to the last cursor position
+  autocmd BufReadPost *
+  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \   exe "normal! g'\"" |
+  \ endif
+  " don't write swapfile on most commonly used directories for NFS mounts or USB sticks
+  autocmd BufNewFile,BufReadPre /media/*,/run/media/*,/mnt/* set directory=~/tmp,/var/tmp,/tmp
+  " start with spec file template
+  autocmd BufNewFile *.spec 0r /usr/share/vim/vimfiles/template.spec
+  augroup END
+endif
+
+if has("cscope") && filereadable("/usr/bin/cscope")
+   set csprg=/usr/bin/cscope
+   set csto=0
+   set cst
+   set nocsverb
+   " add any database in current directory
+   if filereadable("cscope.out")
+      cs add $PWD/cscope.out
+   " else add database pointed to by environment
+   elseif $CSCOPE_DB != ""
+      cs add $CSCOPE_DB
+   endif
+   set csverb
+endif
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
+filetype plugin on
+
+if &term=="xterm"
+     set t_Co=8
+     set t_Sb=[4%dm
+     set t_Sf=[3%dm
+endif
+
+" Don't wake up system with blinking cursor:
+" http://www.linuxpowertop.org/known.php
+let &guicursor = &guicursor . ",a:blinkon0"
+
+set nu
+
+syntax on 
+
