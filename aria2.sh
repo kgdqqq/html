@@ -16,11 +16,11 @@ wget -O /home/aria2/aria2-config/script/delete.sh https://kgdqqq.github.io/Other
 
 wget -O /home/aria2/aria2-config/aria2.conf https://kgdqqq.github.io/Other/aria2/aria2.conf
 
-wget -O /home/downloads.yml https://kgdqqq.github.io/Other/aria2/downloads.yml
+
+wget -O /home/aria2/aria2-pro.yml https://kgdqqq.github.io/Other/aria2/aria2-pro.yml
 
 
-
-docker-compose -f /home/downloads.yml up -d
+docker-compose -f /home/aria2/aria2-pro.yml up -d
 
 
 
