@@ -18,6 +18,8 @@ wget -O /home/aria2/aria2-config/aria2.conf https://kgdqqq.github.io/Other/aria2
 
 wget -O /home/downloads.yml https://kgdqqq.github.io/Other/aria2/downloads.yml
 
+
+
 docker-compose -f /home/downloads.yml up -d
 
 
@@ -29,4 +31,8 @@ mkdir /home/qbittorrent/config
 wget -O /home/qbittorrent/qbittorrent.yml https://kgdqqq.github.io/Other/qbittorrent/qbittorrent.yml
 
 docker-compose -f /home/qbittorrent.yml up -d
+
+
+
+
 
