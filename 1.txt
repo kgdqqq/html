@@ -1,0 +1,31 @@
+docker pull homeassistant/home-assistant
+docker pull oznu/homebridge
+
+
+mkdir /home/homeassistant  && /home/homeassistant/custom_components 
+mkdir /home/homeassistant/custom_components/www
+mkdir /home/homebridge
+
+
+二、安装HomeAssistant
+
+docker run -d \
+--net=host \
+--name=home-assistants \
+-e TZ=Asia/Shanghai \
+-v /opt/home-assistant:/config \
+--restart=always \
+homeassistant/home-assistant
+
+安装HomeBridge
+
+docker run \
+--net=host \
+--name=homebridge \
+-e TZ=Asia/Shanghai \
+-e PGID=1000 -e PUID=1000 \
+-e HOMEBRIDGE_CONFIG_UI=1 \
+-e HOMEBRIDGE_CONFIG_UI_PORT=8581 \
+-v /home/homebridge/config:/homebridge \
+--restart=always \
+oznu/homebridge

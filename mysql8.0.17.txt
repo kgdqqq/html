@@ -1,0 +1,34 @@
+[root@dev1 deploy]# mkdir -p /home/deploy/mysqldb/config
+[root@dev1 deploy]#
+
+[root@dev1 mysqldb]# cat > docker-compose.yaml << eric
+version: '3.1'
+
+services:
+
+  mysql:
+    image: mysql:8.0.17
+    restart: always
+    container_name: mysqldb
+    environment:
+      MYSQL_ROOT_PASSWORD: q1w2E#R
+    command:
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
+    ports:
+      - 3305:3306
+    volumes:
+      - ./config/data/mysql:/var/lib/mysql
+eric
+
+[root@dev1 mysqldb]#
+[root@dev1 mysqldb]# docker-comopose up -d
+[root@dev1 mysqldb]#
+[root@dev1 mysqldb]# docker-compose ps
+ Name                Command               State                 Ports
+------------------------------------------------------------------------------------
+mysqldb   docker-entrypoint.sh --def ...   Up      0.0.0.0:3305->3306/tcp, 33060/tcp
+[root@dev1 mysqldb]#
