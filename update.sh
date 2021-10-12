@@ -63,4 +63,4 @@ echo "profile"
 wget -O /etc/sysctl.conf  https://kgdqqq.github.io/http/etc/sysctl.conf
 
 
-
+reboot
