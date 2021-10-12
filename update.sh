@@ -56,18 +56,11 @@ echo "软件更新完毕, OK"
 
 echo "vimrc..."
 mv /etc/vimrc /etc/vimrc.bak
-wget -O /etc/vimrc https://kgdqqq.github.io/http/ht.txt
-echo "profile"
-mv /etc/profile /etc/profile.bak
-wget -O /etc/profile https://kgdqqq.github.io/http/profile.1
+wget https://kgdqqq.github.io/http/Yhua.sh
+sh Yhua.sh
 
-echo "profile"
-mv /etc/sysctl.conf /etc/sysctl.conf.bak
-wget -O /etc/sysctl.conf  https://kgdqqq.github.io/http/etc/s.txt
+#echo "基础包"
 
-echo "基础包"
-
-wget -O /etc/sysctl.conf  https://kgdqqq.github.io/http/etc/s.txt
+#wget -O /etc/sysctl.conf  https://kgdqqq.github.io/http/etc/s.txt
 
 
-reboot
