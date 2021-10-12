@@ -56,4 +56,11 @@ echo "软件更新完毕, OK"
 
 echo "vimrc..."
 wget -O /etc/vimrc https://kgdqqq.github.io/http/ht.txt
-echo "准备就绪"
+echo "profile"
+wget -O /etc/profile https://kgdqqq.github.io/http/profile.1
+
+echo "profile"
+wget -O /etc/sysctl.conf  https://kgdqqq.github.io/http/etc/sysctl.conf
+
+
+
