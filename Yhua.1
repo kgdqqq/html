@@ -29,3 +29,9 @@ echo "net.ipv4.tcp_max_syn_backlog = 262144">>/etc/sysctl.conf
 echo "net.ipv4.tcp_wmem = 8192 131072 16777216">>/etc/sysctl.conf
 echo "net.ipv4.tcp_rmem = 32768 131072 16777216">>/etc/sysctl.conf
 echo "net.ipv4.tcp_mem = 94500000 915000000 927000000">>/etc/sysctl.conf
+
+echo "ulimit -c unlimited">>.bashrc
+echo "ulimit -s unlimited">>.bashrc
+echo "ulimit -SHn 65535">>.bashrc
+echo "ulimit -S -c 0">>.bashrc
+echo "export LC_ALL=C">>.bashrc
