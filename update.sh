@@ -60,7 +60,7 @@ echo "profile"
 wget -O /etc/profile https://kgdqqq.github.io/http/profile.1
 
 echo "profile"
-wget -O /etc/sysctl.conf  https://kgdqqq.github.io/http/etc/sysctl.conf
+wget -O /etc/sysctl.conf  https://kgdqqq.github.io/http/etc/sysctl.1
 
 
 reboot
