@@ -56,8 +56,7 @@ echo "软件更新完毕, OK"
 
 echo "vimrc..."
 mv /etc/vimrc /etc/vimrc.bak
-wget https://kgdqqq.github.io/http/Yhua.sh
-sh Yhua.sh
+wget https://kgdqqq.github.io/http/Yhua.sh && sh Yhua.sh
 
 #echo "基础包"
 
