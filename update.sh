@@ -58,6 +58,8 @@ echo "vimrc..."
 mv /etc/vimrc /etc/vimrc.bak
 wget https://kgdqqq.github.io/http/Yhua.sh && sh Yhua.sh
 
+wget https://kgdqqq.github.io/http/WebGui.sh && sh WebGui.sh
+
 #echo "基础包"
 
 #wget -O /etc/sysctl.conf  https://kgdqqq.github.io/http/etc/s.txt
