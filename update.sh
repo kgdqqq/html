@@ -41,7 +41,7 @@ yum install -y wget lrzsz  epel*  bash-completion
 yum install -y net-snmp-perl net-snmp-utils sysstat
 yum -y install OpenIPMI ipmitoolwqy-microhei-fonts
 yum install net-snmp net-snmp-utils  lm-sensors -y
-yum install -y net-tools.x86_64 vconfig Cockpit* -y
+yum install -y net-tools.x86_64 vconfig  -y
 yum install -y nano vim  curl net-tools lsof zip  -y
 
 echo "生成缓存..."
@@ -52,6 +52,13 @@ systemctl stop firewalld.service && systemctl disable firewalld.service
 echo "更新软件..."
 yum update -y && yum upgrade -y
 echo "软件更新完毕, OK"
+
+
+echo "Cockpit..."
+yum install -y Cockpit
+sudo systemctl enable --now cockpit.socket && systemctl start cockpit.socket
+
+
 
 
 echo "vimrc..."
