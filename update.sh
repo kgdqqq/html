@@ -55,7 +55,7 @@ echo "软件更新完毕, OK"
 
 
 echo "Cockpit..."
-yum install -y Cockpit
+yum install -y cockpit
 sudo systemctl enable --now cockpit.socket && systemctl start cockpit.socket
 
 
