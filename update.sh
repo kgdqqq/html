@@ -58,8 +58,8 @@ echo "Cockpit..."
 yum install -y cockpit
 sudo systemctl enable --now cockpit.socket && systemctl start cockpit.socket
 
-
-
+echo "centos8 remove podman ..."
+yum remove -y podman
 
 echo "vimrc..."
 mv /etc/vimrc /etc/vimrc.bak
