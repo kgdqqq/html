@@ -36,7 +36,7 @@ sed -i '/^#UseDNS/s/#UseDNS yes/UseDNS no/g' /etc/ssh/sshd_config
 
 
 echo "安装软件..."
-yum -y install sudo yum-utils   unzip ntpdate
+yum -y install sudo yum-utils   unzip ntpdate passwd.x86_64  bzip*
 yum install -y wget lrzsz  epel*  bash-completion
 yum install -y net-snmp-perl net-snmp-utils sysstat
 yum -y install OpenIPMI ipmitoolwqy-microhei-fonts
