@@ -53,6 +53,10 @@ echo "更新软件..."
 yum update -y && yum upgrade -y
 echo "软件更新完毕, OK"
 
+echo "关闭红帽订阅..."
+sed -i '/plugins/s/1/0/g' /etc/yum.conf
+sed -i '/enabled/s/1/0/g' /etc/yum/pluginconf.d/fastestmirror.conf
+echo "软件更新完毕, OK"
 
 echo "Cockpit..."
 yum install -y cockpit
@@ -70,5 +74,8 @@ wget https://kgdqqq.github.io/http/WebGui.sh && sh WebGui.sh
 #echo "基础包"
 
 #wget -O /etc/sysctl.conf  https://kgdqqq.github.io/http/etc/s.txt
+
+#修改系统编码
+localectl set-locale LANG=zh_CN.UTF-8 source /etc/locale.conf 
 
 
