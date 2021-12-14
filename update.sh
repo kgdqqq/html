@@ -34,6 +34,7 @@ echo "生成缓存成功, OK"
 echo "加速ssh连接.."
 sed -i '/^#UseDNS/s/#UseDNS yes/UseDNS no/g' /etc/ssh/sshd_config
 
+setenforce 0
 
 echo "安装软件..."
 yum -y install sudo yum-utils   unzip ntpdate passwd.x86_64  bzip*
